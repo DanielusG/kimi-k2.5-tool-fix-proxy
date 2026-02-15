@@ -19,6 +19,9 @@ from collections.abc import AsyncGenerator
 from typing import Any
 
 import httpx
+from dotenv import load_dotenv
+
+load_dotenv()
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, Response
 from fastapi.responses import StreamingResponse
