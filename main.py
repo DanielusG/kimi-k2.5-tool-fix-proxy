@@ -256,8 +256,10 @@ class ToolCallAccumulator:
         return False
 
 
-def _contains_tool_tokens(text: str) -> bool:
+def _contains_tool_tokens(text: str | None) -> bool:
     """Quick check whether a string contains any raw tool-call tokens."""
+    if not text:
+        return False
     return TOK_SECTION_BEGIN in text or TOK_CALL_BEGIN in text
 
 
@@ -701,7 +703,7 @@ async def proxy(request: Request, path: str) -> Response:
                 needs_fix = False
                 for choice in resp_json.get("choices", []):
                     msg = choice.get("message", {})
-                    rc = msg.get("reasoning_content", "")
+                    rc = msg.get("reasoning_content", "") or ""
                     ct = msg.get("content", "") or ""
                     if _contains_tool_tokens(rc) or _contains_tool_tokens(ct):
                         needs_fix = True
