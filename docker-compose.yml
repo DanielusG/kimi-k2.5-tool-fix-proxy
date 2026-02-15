@@ -6,7 +6,7 @@ services:
     environment:
       - SERVER_URL=${SERVER_URL:-http://localhost:8000}
       - HOST=0.0.0.0
-      - PORT=${PORT:-8080}
+      - PORT=8080
       - TIMEOUT=${TIMEOUT:-600}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
     restart: unless-stopped
