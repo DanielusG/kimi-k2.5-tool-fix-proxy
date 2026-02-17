@@ -17,7 +17,7 @@ This proxy sits between your client and the Kimi-compatible API server. It forwa
 ```bash
 git clone https://github.com/DanielusG/kimi-k2.5-tool-fix-proxy.git
 cd kimi-tool-call-fixer
-SERVER_URL=https://your-ip:your-port/v1 docker compose up -d
+SERVER_URL=https://your-provider-address/v1 docker compose up -d
 ```
 
 Then point your client at `http://localhost:8080` instead of the upstream API.
@@ -26,7 +26,7 @@ Then point your client at `http://localhost:8080` instead of the upstream API.
 
 ```bash
 pip install -r requirements.txt
-SERVER_URL=https://your-ip:your-port/v1 python main.py
+SERVER_URL=https://your-provider-address/v1 python main.py
 ```
 
 ## Configuration
